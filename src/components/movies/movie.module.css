@@ -1,0 +1,18 @@
+.movieListContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+}
+
+.movieList {
+    border: 2px solid #cccccc;
+    width: 30%;
+    margin: 10px;
+}
+
+
+.moviePoster {
+    width: 45px;
+    height: 45px;
+}

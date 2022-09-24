@@ -1,9 +1,11 @@
 
 import './movie.css';
 import Movie from './movie';
+import NewMovie from './newMovie'
+import { useState } from 'react';
 
 function Movies() {
-    const movies = [
+    const [movies, setMovie] = useState([
         {
             "imdbID": "tt0096895",
             "Title": "Batman",
@@ -58,15 +60,28 @@ function Movies() {
             "Year": "1992",
             "Poster": "https://ia.media-imdb.com/images/M/MV5BOGZmYzVkMmItM2NiOS00MDI3LWI4ZWQtMTg0YWZkODRkMmViXkEyXkFqcGdeQXVyODY0NzcxNw@@._V1_UX182_CR0,0,182,268_AL_.jpg"
         }
-    ];
+    ]);
+    const addNewMovieHandler = (movie) => {
+        // console.log(movie);
+  
+
+        setMovie((previousMovies) => {
+            return [ ...[movie],...previousMovies];
+        });
+    };
     return (
-        <div className="movie-list-container">
-            {
-                movies.map((movie) => {
-                    return <Movie moviedata={movie} />
-                })
-            }
-           
+        <div>
+            <div className="new-movie-container">
+                <NewMovie addMovie={addNewMovieHandler} />
+            </div>
+            <div className="movie-list-container">
+                {
+                    movies.map((movie) => {
+                        return <Movie key={movie.imdbID} moviedata={movie} />
+                    })
+                }
+
+            </div>
         </div>
     );
 }

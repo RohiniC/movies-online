@@ -1,7 +1,5 @@
 import { useState } from 'react';
 
-
-
 function NewMovie(props) {
     const [newMovie, setNewmovie] = useState({
         Title: "",
@@ -24,25 +22,30 @@ function NewMovie(props) {
         // lifting state up
     };
 
-    return (<div className="login">
-        <form onSubmit={newMovieHandler}>
-            <label>Enter name:
-                <input type="text" placeholder="name" name="Title" value={newMovie.Title} onChange={inputHandler} />
+    return (
+        <>
+            <p> Please enter the details</p>
+            <div className="login">
+                <form onSubmit={newMovieHandler}>
+                    <label>Enter name:
+                        <input type="text" placeholder="name" name="Title" value={newMovie.Title} onChange={inputHandler} />
 
-            </label>
+                    </label>
 
-            <label>Enter year:
-                <input type="text" placeholder="year" name="Year" value={newMovie.Year} onChange={inputHandler} />
-            </label>
-            <label>Enter poster:
-                <input type="text" placeholder="text" name="Poster" value={newMovie.Poster} onChange={inputHandler} />
-            </label>
-            <label>Enter description:
-                <input type="text" placeholder="text" name="description" value={newMovie.description} onChange={inputHandler} />
-            </label>
-            <button>Submit</button>
-        </form>
-    </div>);
+                    <label>Enter year:
+                        <input type="text" placeholder="year" name="Year" value={newMovie.Year} onChange={inputHandler} />
+                    </label>
+                    <label>Enter poster:
+                        <input type="text" placeholder="text" name="Poster" value={newMovie.Poster} onChange={inputHandler} />
+                    </label>
+                    <label>Enter description:
+                        <input type="text" placeholder="text" name="description" value={newMovie.description} onChange={inputHandler} />
+                    </label>
+                    <button>Submit</button>
+                </form>
+            </div>
+        </>
+    );
 }
 
 export default NewMovie;
